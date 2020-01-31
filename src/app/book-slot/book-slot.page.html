@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>book_slot</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="main-card">
+  <ion-card>
+    <ion-card-header>
+
+    </ion-card-header>
+
+    <ion-card-content>
+            <ion-item>
+              <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
+              <ion-label>Select Date</ion-label>
+              <ion-datetime [max]="today"  displayFormat="MMM DD YYYY" (click)="date_selection()" pickerFormat="MMM DD YYYY"></ion-datetime>
+            </ion-item>      
+    </ion-card-content>
+    
+    <ion-card>
+      <ion-card-content>   
+        <ion-icon ios="ios-time" md="md-time"></ion-icon>
+        select slot:      
+        <div class="day-padding">   
+        <ion-segment [(ngModel)]="segment">
+          <ion-segment-button value="morning">
+            Morning
+          </ion-segment-button>
+          <ion-segment-button value="afternoon">
+            Afternoon
+          </ion-segment-button>
+          <ion-segment-button value="evening">
+            Evening
+          </ion-segment-button>
+        </ion-segment>
+      </div>
+      
+        <div [ngSwitch]="segment" class="slots-padding">
+          <ion-segment *ngSwitchCase="'morning'">
+            <ion-segment-button> 10:00 am  </ion-segment-button>
+            <ion-segment-button> 10:00 am  </ion-segment-button>
+          </ion-segment>
+          <ion-segment *ngSwitchCase="'afternoon'">
+            <ion-segment-button> 01:00 am  </ion-segment-button>
+            <ion-segment-button> 01:00 am  </ion-segment-button>
+          </ion-segment>
+          <ion-segment *ngSwitchCase="'evening'">
+            <ion-segment-button> 04:00 am  </ion-segment-button>
+            <ion-segment-button> 04:00 am  </ion-segment-button>
+          </ion-segment>
+        </div>
+      </ion-card-content>
+  </ion-card>
+    
+  </ion-card>
+  <!--button-->
+  <ion-button class="btn-bottom">submit</ion-button>
+  <ion-card>
+    
+  </ion-card> 
+</ion-content>

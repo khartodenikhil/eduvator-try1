@@ -1,0 +1,56 @@
+
+<ion-content class="container">
+  
+      <ion-card class="loginpage-card-area">
+        <ion-card-title class="logo">
+          <ion-img src="../../assets/icon/icon-512x512.png"></ion-img>
+        </ion-card-title>
+        <ion-card-subtitle class="name">Eduvator Overseas</ion-card-subtitle>
+        
+        <ion-card-content>
+
+          <form style="font-size: x-small;" [formGroup]="loginForm" (ngSubmit)="submit()">
+
+              <mat-form-field appearance="outline" class="user">
+                <mat-icon matSuffix>person</mat-icon>
+                <mat-label>Username</mat-label>
+                <input matInput required type="email"  placeholder="eg.  xyz@gmail.com" formControlName="username">
+              </mat-form-field>
+
+              <div *ngFor="let error of errorMessages.username">
+                <ng-container *ngIf="username.hasError(error.type)  &&  (username.dirty || username.touched)">
+                  <p class="error-message">{{error.message}}</p>
+                </ng-container>
+              </div>
+
+              <br>
+
+
+              <mat-form-field appearance="outline" class="pass">
+                <mat-icon matSuffix>lock</mat-icon>
+                <mat-label>Password</mat-label>
+                <input matInput   required type="password"  formControlName="password">
+              </mat-form-field> 
+
+              <div *ngFor="let error of errorMessages.password">
+                <ng-container *ngIf="password.hasError(error.type)  &&  (password.dirty || password.touched)">
+                  <p class="error-message">{{error.message}}</p>
+                </ng-container>
+              </div>
+
+              <div class="buttonlineup">
+                <ion-button  class="login" routerLink='/home' expand="block" [disabled]="!loginForm.valid" (click)="submit()">Login</ion-button>
+                <br>
+                <ion-button class="register"  routerLink='/register' expand="block" fill="outline">Register</ion-button>
+              </div>
+              <ion-button  class="forgot"  routerLink='/forgot-password' fill="clear">Forgot Password?</ion-button>
+            </form>
+        </ion-card-content>
+      </ion-card>
+
+</ion-content>
+
+<div  class="footerimage">
+  <img src="../../assets/icon/colourful_wow.png">
+</div>
+

@@ -1,0 +1,66 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>MENU</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+
+          <ion-item-group class="menulabels" >
+
+            <ion-item-divider>
+              <ion-label>Options</ion-label>
+            </ion-item-divider>
+
+            <ion-menu-toggle auto-hide="false" *ngFor="let o of optionsPages">
+              <ion-item [routerDirection]="'root'" [routerLink]="[o.url]">
+                <ion-icon slot="start" [name]="o.icon"></ion-icon>
+                <ion-label>
+                  {{o.title}}
+                </ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+
+            <ion-item-divider>
+                <ion-label>Process</ion-label>
+            </ion-item-divider>
+
+            <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+              <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
+                <ion-icon slot="start" [name]="p.icon"></ion-icon>
+                <ion-label>
+                  {{p.title}}
+                </ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+  
+
+ 
+
+            <ion-item-divider>
+              <ion-label>Reach Us</ion-label>
+            </ion-item-divider>
+
+            <ion-menu-toggle auto-hide="false" *ngFor="let a of contactPages">
+              <ion-item [routerDirection]="'root'" [routerLink]="[a.url]">
+                <ion-icon slot="start" [name]="a.icon"></ion-icon>
+                <ion-label>
+                  {{a.title}}
+                </ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+
+          </ion-item-group>
+
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+
+
+
+</ion-app>

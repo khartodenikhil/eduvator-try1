@@ -1,0 +1,145 @@
+
+<ion-content>
+<ion-card>
+  
+  <ion-card-header>Professional Experience</ion-card-header>
+  <ion-card-content>
+    <form [formGroup]="professionalForm" (ngSubmit)="submit()">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label >Past Experience</ion-label>
+            <ion-select [(ngModel)]="professionalForm.value.pastExperience" formControlName="pastExperience" placeholder="Past Experience" required>
+              <ion-select-option value="YES">Yes</ion-select-option>
+              <ion-select-option value="No">No</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid *ngIf="professionalForm.value.pastExperience=='YES'" >
+      <ion-row >
+        <ion-col>
+          <ion-item>
+          <ion-label>Part Time/Full Time</ion-label>
+          <ion-select placeholder="" required>
+            <ion-select-option value="prt_time">Part Time</ion-select-option>
+            <ion-select-option value="full_time">Full Time</ion-select-option>
+          </ion-select>
+        </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+          <ion-label>Experience</ion-label>
+          <ion-col>
+          <ion-select placeholder="Years" item-right required>
+            <ion-select-option value="yrs_1">1 Year</ion-select-option>
+            <ion-select-option value="yrs_2">2 Years</ion-select-option>
+            <ion-select-option value="yrs_3+">3+ Years</ion-select-option>
+            <ion-select-option value="yrs_5+">5+ Years</ion-select-option>
+          </ion-select>
+        </ion-col>
+          <ion-col>
+          <ion-select placeholder="Months" item-right required>
+            <ion-select-option value="month_1">1 Month</ion-select-option>
+            <ion-select-option value="month_2">2 Month</ion-select-option>
+            <ion-select-option value="month_3">3 Month</ion-select-option>
+            <ion-select-option value="month_4">4 Month</ion-select-option>
+            <ion-select-option value="month_5">5 Month</ion-select-option>
+            <ion-select-option value="month_6">6 Month</ion-select-option>
+            <ion-select-option value="month_7">7 Month</ion-select-option>
+            <ion-select-option value="month_8">8 Month</ion-select-option>
+            <ion-select-option value="month_9">9 Month</ion-select-option>
+            <ion-select-option value="month_10">10 Month</ion-select-option>
+            <ion-select-option value="month_11">11 Month</ion-select-option>
+          </ion-select>
+          </ion-col>
+        </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Organization Name</ion-label>
+            <ion-input formControlName="orgnizationPhoneNo" required ></ion-input>
+          </ion-item>
+          <mat-error *ngFor="let error of errormessage.orgnizationName">
+            <ng-container *ngIf="orgnizationName.hasError(error.type) && (orgnizationName.dirty ||orgnizationName.touched)">
+              <small class="errormessage">{{error.message}}</small> 
+            </ng-container>
+          </mat-error>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Organization Contact Details</ion-label>
+            <ion-input formControlName="orgnizationPhoneNo" inputmode="tell" required></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Organization Email ID</ion-label>
+            <ion-input formControlName="orgnizationEmail_id"></ion-input>
+          </ion-item>
+          <mat-error *ngFor="let error of errormessage.orgnizationEmail_id">
+            <ng-container *ngIf="orgnizationEmail_id.hasError(error.type) && (orgnizationEmail_id.dirty ||orgnizationEmail_id.touched)">
+              <small class="errormessage" >{{error.message}}</small> 
+            </ng-container>
+          </mat-error>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+  </ion-card-content>
+</ion-card>
+
+<ion-card>
+  <ion-card-header>Internship Details</ion-card-header>
+  <ion-card-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label>Instrested Country</ion-label>
+            <ion-select placeholder="Country" item-right>
+              <ion-select-option value="country_1">GERMANY</ion-select-option>
+              <ion-select-option value="country_2">ARMENIA</ion-select-option>
+              <ion-select-option value="country_3">ITALY</ion-select-option>
+              <ion-select-option value="country_4">UK</ion-select-option>
+              <ion-select-option value="country_5">CANADA</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label>Internship Department</ion-label>
+            <ion-select placeholder="Department" item-right>
+              <ion-select-option value="country_1">Cook</ion-select-option>
+              <ion-select-option value="country_2">Waiter</ion-select-option>
+              <ion-select-option value="country_3">Guide</ion-select-option>
+              <ion-select-option value="country_4">Cook</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+</ion-card>
+
+<div class="saveBtn">
+  <ion-button >SAVE</ion-button>
+</div>
+</ion-content>

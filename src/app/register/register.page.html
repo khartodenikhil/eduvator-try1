@@ -1,0 +1,89 @@
+<ion-app>
+<ion-content >
+  <ion-card >    
+      <ion-card-header >
+        <img src="../../assets/img/background.png" class="center">
+       <ion-card-title style="text-align: center;">Register</ion-card-title>
+    </ion-card-header >
+    <ion-card-content >
+      <form [formGroup]="registrationForm" (ngSubmit)="submit()">
+        <ion-card>
+          <ion-card-content>
+            <mat-list >        
+              <mat-list-item >
+                <i class="material-icons" style="color: black;">account_circle</i>
+                <mat-form-field  class="example-full-width">
+                  <input  matInput placeholder="First name" formControlName="fname" required>
+                </mat-form-field> 
+              </mat-list-item>
+              <mat-error *ngFor="let error of errormessage.fname">
+                <ng-container *ngIf="fname.hasError(error.type) && (fname.dirty ||fname.touched)">
+                  <small class="errormessage">{{error.message}}</small> 
+                </ng-container>
+              </mat-error>
+              
+              <mat-list-item > 
+                <i class="material-icons" style="color: black;">account_circle</i>
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Last name" formControlName="lname" required>
+                </mat-form-field>   
+              </mat-list-item>
+              <mat-error *ngFor="let error of errormessage.lname">
+                <ng-container *ngIf="lname.hasError(error.type) && (lname.dirty ||lname.touched)">
+                  <small class="errormessage">{{error.message}}</small> 
+                </ng-container>
+              </mat-error>
+    
+              <mat-list-item >
+                <i class="material-icons" style="color: black;">email </i>
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Email ID" formControlName="email_id" required>
+                </mat-form-field>   
+              </mat-list-item>
+              <mat-error *ngFor="let error of errormessage.email_id">
+                <ng-container *ngIf="email_id.hasError(error.type) && (email_id.dirty ||email_id.touched)">
+                  <small class="errormessage" >{{error.message}}</small> 
+                </ng-container>
+              </mat-error>
+    
+              <mat-list-item >
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Password" formControlName="pswd" [type]="showpassword ? 'text':'password'" required>
+                </mat-form-field>
+                <i class="material-icons" style="color: black;" item-right (click)="togglePassword()">{{passwordIcon}} </i>  
+              </mat-list-item>
+              <mat-hint>
+                <mat-error *ngFor="let error of errormessage.pswd">
+                  <ng-container *ngIf="pswd.hasError(error.type) && (pswd.dirty ||pswd.touched)">
+                    <small  class="errormessage">{{error.message}}</small> 
+                  </ng-container>
+                </mat-error>
+              </mat-hint>
+              
+    
+              <mat-list-item >
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Confirm Password" formControlName="conf_pswd" [type]="showconfpassword ? 'text':'password'" required>
+                </mat-form-field>
+                <i class="material-icons" style="color: black;" item-right (click)="toggleConfPassword()">{{confpasswordIcon}} </i>
+              </mat-list-item>
+              <mat-error  *ngFor="let error of errormessage.conf_pswd">
+                <ng-container *ngIf="conf_pswd.hasError(error.type) && (conf_pswd.dirty ||conf_pswd.touched)">
+                  <small style="text-align: center;" class="errormessage">{{error.message}}</small> 
+                </ng-container>
+              </mat-error>
+          
+                <ion-checkbox  mode="md" checked="false"></ion-checkbox>
+                <ion-label style="color: black;">I accept All terms & condition</ion-label>
+              
+              <ion-button class="center" [disabled]="!registrationForm.valid">Submit</ion-button>  
+            </mat-list> 
+          </ion-card-content>
+        </ion-card>
+        
+      </form>
+    </ion-card-content>
+
+  </ion-card>
+</ion-content>
+</ion-app>

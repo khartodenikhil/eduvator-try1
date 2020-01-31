@@ -1,0 +1,14 @@
+ion-button
+  {
+      width: 100%;
+  }
+
+  .saveBtn ion-button{
+    --background:#e7c24c ;
+    color:#65343a;
+    font-weight: 600;
+  }
+
+  .saveBtn{
+    padding:3%;
+  }

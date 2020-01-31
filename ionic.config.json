@@ -1,0 +1,7 @@
+{
+  "name": "eduvator",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

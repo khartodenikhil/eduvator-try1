@@ -1,0 +1,234 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content>
+  <form>
+    <ion-slides class="padding-down" [options]="{allowTouchMove:false}" pager="true" #slides  (ionSlideWillChange)="doCheck()">
+      <ion-slide>
+        <ion-card>
+          <ion-label position="floating">SSC Details</ion-label>
+          <ion-grid>
+            <ion-row>
+              <ion-col size=6>
+                <ion-item>
+                  <ion-label position="floating">School Name</ion-label>
+                  <ion-input></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col size=6>
+                <ion-item>
+                  <ion-label position="floating">Board Name</ion-label>
+                  <ion-input></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item>
+                  <ion-label position="floating">School Address</ion-label>
+                  <ion-textarea></ion-textarea>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size=6>
+                <ion-item>
+                  <ion-label position="floating">Marks Obtained</ion-label>
+                  <ion-input></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col size=6>
+                <ion-item>
+                  <ion-label position="floating">Maximum marks</ion-label>
+                  <ion-input></ion-input>
+                </ion-item>
+              </ion-col>
+
+            </ion-row>
+            <ion-row>
+              <ion-col size=6>
+                <ion-item>
+                  <ion-label position="floating">Percentage</ion-label>
+                  <ion-input></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col size=6>
+                <ion-item>
+                  <ion-label position="floating">Medium</ion-label>
+                  <ion-input></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size=3>
+
+              </ion-col>
+              <ion-col size=6>
+                <ion-item>
+                  <ion-label position="floating">Year of Passing</ion-label>
+                  <ion-input></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card>
+      </ion-slide>
+      <ion-slide>
+
+        <ion-card>
+          <ion-label position="floating">HSC Details</ion-label>
+          <ion-grid>
+            <ion-row>
+              <ion-col size=6>
+                <ion-item>
+                  <ion-label position="floating">College Name</ion-label>
+                  <ion-input></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col size=6>
+                <ion-item>
+                  <ion-label position="floating">Board Name</ion-label>
+                  <ion-input></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item>
+                  <ion-label position="floating">College Address</ion-label>
+                  <ion-textarea></ion-textarea>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size=6>
+                <ion-item>
+                  <ion-label position="floating">Marks Obtained</ion-label>
+                  <ion-input></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col size=6>
+                <ion-item>
+                  <ion-label position="floating">Maximum marks</ion-label>
+                  <ion-input></ion-input>
+                </ion-item>
+              </ion-col>
+
+            </ion-row>
+            <ion-row>
+              <ion-col size=6>
+                <ion-item>
+                  <ion-label position="floating">Percentage</ion-label>
+                  <ion-input></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col size=6>
+                <ion-item>
+                  <ion-label position="floating">Medium</ion-label>
+                  <ion-input></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size=3>
+
+              </ion-col>
+              <ion-col size=6>
+                <ion-item>
+                  <ion-label position="floating">Year of Passing</ion-label>
+                  <ion-input></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card>
+      </ion-slide>
+      <ion-slide>
+        <ion-card>
+          <ion-label position="floating">Degree/Diploma/Current Course Details</ion-label>
+          <ion-grid>
+            <ion-row>
+              <ion-col size=6>
+                <ion-item>
+                  <ion-label position="floating">College Name</ion-label>
+                  <ion-input></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col size=6>
+                <ion-item>
+                  <ion-label position="floating">University Name</ion-label>
+                  <ion-input></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item>
+                  <ion-label position="floating">College Address</ion-label>
+                  <ion-textarea></ion-textarea>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size=6>
+                <ion-item>
+                  <ion-label position="floating">Marks Obtained</ion-label>
+                  <ion-input></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col size=6>
+                <ion-item>
+                  <ion-label position="floating">Maximum marks</ion-label>
+                  <ion-input></ion-input>
+                </ion-item>
+              </ion-col>
+
+            </ion-row>
+            <ion-row>
+              <ion-col size=6>
+                <ion-item>
+                  <ion-label position="floating">Percentage</ion-label>
+                  <ion-input></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col size=6>
+                <ion-item>
+                  <ion-label position="floating">Course Name</ion-label>
+                  <ion-input></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size=3>
+
+              </ion-col>
+              <ion-col size=6>
+                <ion-item>
+                  <ion-label position="floating">Year of Passing</ion-label>
+                  <ion-input></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+    <ion-grid>
+      <ion-row>
+        <ion-col size=5>
+          <ion-button (click)="previous(slides)" *ngIf="!disablePrevBtn">
+            <ion-icon name="arrow-back"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col size=5><ion-button *ngIf="!disableSaveBtn">Save</ion-button></ion-col>
+        <ion-col size=2>
+          <ion-button (click)="next(slides)" *ngIf="!disableNextBtn">
+            <ion-icon name="arrow-forward"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </form>
+</ion-content>

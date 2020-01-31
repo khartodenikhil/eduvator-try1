@@ -1,0 +1,60 @@
+<ion-content>
+<div  class="connection_container">
+  <ion-card class="connection_card">
+    <ion-label class="connection_card_label">Fill your professional contact details</ion-label>
+
+    <form class="connection_form" [formGroup]="connection_form" (ngSubmit) = "submit()">
+
+        <br>
+        <mat-form-field>
+          <mat-label>Skype id</mat-label>
+          <input matInput placeholder="Enter your skype id" formControlName="skypeid">
+        </mat-form-field>
+
+
+        <div *ngFor="let error of errorMessages.skypeid">
+          <ng-container *ngIf="skypeid.hasError(error.type)  &&  (skypeid.dirty || skypeid.touched)">
+            <p class="error-message">{{error.message}}</p>
+          </ng-container>
+        </div>
+
+        <mat-form-field>
+          <mat-label>LinkedIn link</mat-label>
+          <input matInput placeholder="Enter your Linkedin link" formControlName="linkedin">
+        </mat-form-field>
+
+
+        <div *ngFor="let error of errorMessages.linkedin">
+          <ng-container *ngIf="linkedin.hasError(error.type)  &&  (linkedin.dirty || linkedin.touched)">
+            <p class="error-message">{{error.message}}</p>
+          </ng-container>
+        </div>
+        
+        <mat-form-field>
+          <mat-label>Passport number</mat-label>
+          <input matInput placeholder="Enter your Passport number" required formControlName="passport">
+        </mat-form-field>
+
+        <div *ngFor="let error of errorMessages.passport">
+          <ng-container *ngIf="passport.hasError(error.type)  &&  (passport.dirty || passport.touched)">
+            <p class="error-message">{{error.message}}</p>
+          </ng-container>
+        </div>
+
+        <mat-form-field>
+          <mat-label>Parent's number</mat-label>
+          <input matInput placeholder="Enter your Parent's contact number" required formControlName="parent_mobile">
+        </mat-form-field>
+
+        <div *ngFor="let error of errorMessages.parent_mobile">
+          <ng-container *ngIf="parent_mobile.hasError(error.type)  &&  (parent_mobile.dirty || parent_mobile.touched)">
+            <p class="error-message">{{error.message}}</p>
+          </ng-container>
+        </div>
+
+        <ion-button  class="connection_save" routerLink='' expand="block" [disabled]="!connection_form.valid" (click)="submit()">SAVE</ion-button>
+    </form>
+  </ion-card>
+</div>
+</ion-content>
+
