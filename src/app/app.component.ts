@@ -38,7 +38,11 @@ export class AppComponent {
         url: '/book-slot',
         icon: 'alarm'
       },
-  
+      {
+        title: 'enrolled applicants',
+        url: '/enrollment-list',
+        icon:'document'
+      }
   
     ];
   
