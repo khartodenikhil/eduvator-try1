@@ -12,7 +12,7 @@ import {
   MatPaginatorModule,
   MatSortModule,
   MatListModule,
-  MatCardModule
+  MatCardModule,
 } from '@angular/material';
 
 

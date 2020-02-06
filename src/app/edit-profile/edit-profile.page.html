@@ -1,0 +1,59 @@
+
+<ion-app>
+  <ion-content >
+    <ion-card >    
+        <ion-card-header >
+          <img src="../../assets/img/background.png" class="center">
+         <ion-card-title style="text-align: center;">Edit Information</ion-card-title>
+      </ion-card-header >
+      <ion-card-content >
+        <form [formGroup]="editprofileForm" (ngSubmit)="submit()">
+          <ion-card>
+            <ion-card-content>
+              <mat-list >        
+                <mat-list-item >
+                  <i class="material-icons" style="color: black;">account_circle</i>
+                  <mat-form-field  class="example-full-width">
+                    <input  matInput placeholder="First name" formControlName="fname" required>
+                  </mat-form-field> 
+                </mat-list-item>
+                <mat-error *ngFor="let error of errormessage.fname">
+                  <ng-container *ngIf="fname.hasError(error.type) && (fname.dirty ||fname.touched)">
+                    <small class="errormessage">{{error.message}}</small> 
+                  </ng-container>
+                </mat-error>
+                
+                <mat-list-item > 
+                  <i class="material-icons" style="color: black;">account_circle</i>
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Last name" formControlName="lname" required>
+                  </mat-form-field>   
+                </mat-list-item>
+                <mat-error *ngFor="let error of errormessage.lname">
+                  <ng-container *ngIf="lname.hasError(error.type) && (lname.dirty ||lname.touched)">
+                    <small class="errormessage">{{error.message}}</small> 
+                  </ng-container>
+                </mat-error>
+      
+                <mat-list-item >
+                  <i class="material-icons" style="color: black;">email </i>
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Email ID" formControlName="email_id" required>
+                  </mat-form-field>   
+                </mat-list-item>
+                <mat-error *ngFor="let error of errormessage.email_id">
+                  <ng-container *ngIf="email_id.hasError(error.type) && (email_id.dirty ||email_id.touched)">
+                    <small class="errormessage" >{{error.message}}</small> 
+                  </ng-container>
+                </mat-error>
+                <ion-button class="center" [disabled]="!editprofileForm.valid">Submit</ion-button>  
+              </mat-list> 
+            </ion-card-content>
+          </ion-card>
+          
+        </form>
+      </ion-card-content>
+  
+    </ion-card>
+  </ion-content>
+  </ion-app>

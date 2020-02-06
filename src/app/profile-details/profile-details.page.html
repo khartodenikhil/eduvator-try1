@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-img class="headerlogo padded" src="../../assets/icon/logo-finaledu.png"></ion-img>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngFor="let x of data.person">
+    <ion-card>
+      <ion-grid id="Profile-info">
+      <ion-row>
+        <ion-col size=4>
+            <ion-icon name="contact"></ion-icon>
+        </ion-col>
+        <ion-col size=8>
+          <p>{{x.fname}} {{x.lname}}</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <p>{{x.email_id}}</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <p>{{x.phone}}</p>
+        </ion-col>
+      </ion-row>
+      <ion-button class="edit-profile"  routerLink='/edit-profile' expand="block" fill="outline">Register
+        <ion-icon name="create"></ion-icon></ion-button>
+    </ion-grid>
+  </ion-card>
+  </div>
+</ion-content>

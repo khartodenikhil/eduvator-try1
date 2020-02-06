@@ -10,8 +10,6 @@
           <mat-label>Skype id</mat-label>
           <input matInput placeholder="Enter your skype id" formControlName="skypeid">
         </mat-form-field>
-
-
         <div *ngFor="let error of errorMessages.skypeid">
           <ng-container *ngIf="skypeid.hasError(error.type)  &&  (skypeid.dirty || skypeid.touched)">
             <p class="error-message">{{error.message}}</p>

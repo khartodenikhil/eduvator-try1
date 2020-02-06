@@ -32,7 +32,14 @@ export class PersonalPage implements OnInit {
   get zip() {
     return this.personalInfoForm.get('zip');
   }
-
+  data = {
+    country: [
+      { cntry: 'CANADA' },
+      { cntry: 'UK' },
+      { cntry: 'ITALY' },
+      { cntry: 'ARMENIA' },
+      { cntry: 'GERMANY' }
+    ], };
   // tslint:disable-next-line: member-ordering
   public errormessage = {
     firstName: [

@@ -94,14 +94,15 @@
       </ion-row>
 
       <ion-row>
-        <ion-col>
-          <ion-item>
-            <ion-label position="floating">Country</ion-label>
-            <ion-select>
-              <ion-select-option> </ion-select-option>
-            </ion-select>
-          </ion-item>
-        </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-label>Instrested Country</ion-label>
+          <ion-select placeholder="Country" item-right>
+            <ion-select-option *ngFor="let x of data.country" value={{data.country}}>
+              {{x.cntry}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
       </ion-row>
 
       <ion-row>

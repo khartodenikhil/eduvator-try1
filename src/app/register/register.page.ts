@@ -90,15 +90,9 @@ constructor(private formbuilder: FormBuilder) { }
     this.showconfpassword = ! this.showconfpassword;
     this.confpasswordIcon = this.confpasswordIcon === 'visibility_off' ? 'visibility' : 'visibility_off';
   }
-  buttonClick()
-  {
-    
-  }
    submit() {
     console.log();
     if (true) {
-
     }
-   
   }
 }

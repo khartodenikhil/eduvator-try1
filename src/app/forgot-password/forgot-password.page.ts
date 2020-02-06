@@ -9,7 +9,7 @@ import { FormBuilder,Validators } from '@angular/forms';
 export class ForgotPasswordPage implements OnInit {
 
   get email(){
-    return this.forgotpasswordform.get("email");
+    return this.forgotpasswordform.get('email');
   }
 
   public errormessage = {
@@ -24,6 +24,10 @@ export class ForgotPasswordPage implements OnInit {
   
   constructor(public formbuilder: FormBuilder) { }
   ngOnInit() {
+    
+  }
+  submit()
+  {
     
   }
   

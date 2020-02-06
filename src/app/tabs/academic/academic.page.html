@@ -3,93 +3,142 @@
 </ion-header>
 
 <ion-content>
-  <form>
+  <form [formGroup]="academicForm" (ngSubmit)="submit()">
     <ion-slides class="padding-down" [options]="{allowTouchMove:false}" pager="true" #slides  (ionSlideWillChange)="doCheck()">
+
       <ion-slide>
         <ion-card>
           <ion-label position="floating">SSC Details</ion-label>
           <ion-grid>
             <ion-row>
-              <ion-col size=6>
+              <ion-col >
                 <ion-item>
-                  <ion-label position="floating">School Name</ion-label>
-                  <ion-input></ion-input>
+                  <ion-label position="floating" >School Name</ion-label>
+                  <ion-input formControlName="school_name"></ion-input>
                 </ion-item>
+                <mat-error *ngFor="let error of errormessage.school_name">
+                  <ng-container *ngIf="school_name.hasError(error.type) && (school_name.dirty ||school_name.touched)">
+                    <small class="errormessage">{{error.message}}</small> 
+                  </ng-container>
+                </mat-error>
               </ion-col>
-              <ion-col size=6>
+            </ion-row>
+
+            <ion-row>
+              <ion-col>
                 <ion-item>
-                  <ion-label position="floating">Board Name</ion-label>
-                  <ion-input></ion-input>
+                  <ion-label>Board</ion-label>
+                    <ion-select  placeholder="select Board" item-right>
+                      <ion-select-option *ngFor="let x of data.Board" value={{data.Board}}>
+                        {{x.brd}}</ion-select-option>
+                    </ion-select>
                 </ion-item>
               </ion-col>
             </ion-row>
+
             <ion-row>
               <ion-col>
                 <ion-item>
                   <ion-label position="floating">School Address</ion-label>
-                  <ion-textarea></ion-textarea>
+                  <ion-textarea formControlName="school_add"></ion-textarea>
                 </ion-item>
+                <mat-error *ngFor="let error of errormessage.school_add">
+                  <ng-container *ngIf="school_add.hasError(error.type) && (school_add.dirty ||school_add.touched)">
+                    <small class="errormessage">{{error.message}}</small> 
+                  </ng-container>
+                </mat-error>
               </ion-col>
             </ion-row>
+
             <ion-row>
               <ion-col size=6>
                 <ion-item>
                   <ion-label position="floating">Marks Obtained</ion-label>
-                  <ion-input></ion-input>
+                  <ion-input formControlName="mark_obtain" inputmode="numeric"></ion-input>
                 </ion-item>
+                <mat-error *ngFor="let error of errormessage.mark_obtain">
+                  <ng-container *ngIf="mark_obtain.hasError(error.type) && (mark_obtain.dirty ||mark_obtain.touched)">
+                    <small class="errormessage">{{error.message}}</small> 
+                  </ng-container>
+                </mat-error>
               </ion-col>
               <ion-col size=6>
                 <ion-item>
-                  <ion-label position="floating">Maximum marks</ion-label>
-                  <ion-input></ion-input>
+                  <ion-label position="floating">Total marks</ion-label>
+                  <ion-input formControlName="max_mark" inputmode="numeric"></ion-input>
                 </ion-item>
+                <mat-error *ngFor="let error of errormessage.max_mark">
+                  <ng-container *ngIf="max_mark.hasError(error.type) && (max_mark.dirty ||max_mark.touched)">
+                    <small class="errormessage">{{error.message}}</small> 
+                  </ng-container>
+                </mat-error>
               </ion-col>
-
             </ion-row>
+
             <ion-row>
-              <ion-col size=6>
+              <ion-col >
                 <ion-item>
                   <ion-label position="floating">Percentage</ion-label>
-                  <ion-input></ion-input>
+                  <ion-input formControlName="percent" inputmode="numeric"></ion-input>
                 </ion-item>
+                <mat-error *ngFor="let error of errormessage.percent">
+                  <ng-container *ngIf="percent.hasError(error.type) && (percent.dirty ||percent.touched)">
+                    <small class="errormessage">{{error.message}}</small> 
+                  </ng-container>
+                </mat-error>
               </ion-col>
-              <ion-col size=6>
+            </ion-row>
+            <ion-row>
+              <ion-col >
                 <ion-item>
-                  <ion-label position="floating">Medium</ion-label>
-                  <ion-input></ion-input>
+                  <ion-label>Medium</ion-label>
+                  <ion-select  placeholder="select Board" item-right>
+                    <ion-select-option *ngFor="let x of data.Medium" value={{data.Medium}}>{{x.mid}}</ion-select-option>
+                  </ion-select>
+                  
                 </ion-item>
               </ion-col>
             </ion-row>
             <ion-row>
-              <ion-col size=3>
-
-              </ion-col>
-              <ion-col size=6>
+              <ion-col >
                 <ion-item>
-                  <ion-label position="floating">Year of Passing</ion-label>
-                  <ion-input></ion-input>
-                </ion-item>
+                  <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
+                  <ion-label>Year of Passing</ion-label>
+                  <ion-datetime formControlName="yr_passing"  [min]="minDate" placeholder="select Date" [max]="maxDate" displayFormat="YYYY" pickerFormat="YYYY"></ion-datetime>
+                </ion-item>  
               </ion-col>
             </ion-row>
           </ion-grid>
         </ion-card>
       </ion-slide>
-      <ion-slide>
 
+      <ion-slide>
         <ion-card>
           <ion-label position="floating">HSC Details</ion-label>
           <ion-grid>
             <ion-row>
-              <ion-col size=6>
+              <ion-col >
                 <ion-item>
                   <ion-label position="floating">College Name</ion-label>
-                  <ion-input></ion-input>
+                  <ion-input formControlName="HSC_name" ></ion-input>
                 </ion-item>
+                <mat-error *ngFor="let error of errormessage.HSC_name">
+                  <ng-container *ngIf="HSC_name.hasError(error.type) && (HSC_name.dirty ||HSC_name.touched)">
+                    <small class="errormessage">{{error.message}}</small> 
+                  </ng-container>
+                </mat-error>
               </ion-col>
-              <ion-col size=6>
+            </ion-row>
+            <ion-row>
+              <ion-col >
                 <ion-item>
-                  <ion-label position="floating">Board Name</ion-label>
-                  <ion-input></ion-input>
+                  <ion-label>Board</ion-label>
+                    <ion-select formControlName="college_board" placeholder="select Board" item-right>
+                      <ion-select-option value="ICSE">ICSE</ion-select-option>
+                      <ion-select-option value="CBSE">CBSE</ion-select-option>
+                      <ion-select-option value="State_boards">State boards </ion-select-option>
+                      <ion-select-option value="IB">IB</ion-select-option>
+                    </ion-select>
                 </ion-item>
               </ion-col>
             </ion-row>
@@ -97,91 +146,143 @@
               <ion-col>
                 <ion-item>
                   <ion-label position="floating">College Address</ion-label>
-                  <ion-textarea></ion-textarea>
+                  <ion-textarea formControlName="HSC_add"></ion-textarea>
                 </ion-item>
+                <mat-error *ngFor="let error of errormessage.HSC_add">
+                  <ng-container *ngIf="HSC_add.hasError(error.type) && (HSC_add.dirty ||HSC_add.touched)">
+                    <small class="errormessage">{{error.message}}</small> 
+                  </ng-container>
+                </mat-error>
               </ion-col>
             </ion-row>
             <ion-row>
               <ion-col size=6>
                 <ion-item>
                   <ion-label position="floating">Marks Obtained</ion-label>
-                  <ion-input></ion-input>
+                  <ion-input formControlName="HSCmark_obtain" inputmode="numeric"></ion-input>
                 </ion-item>
+                <mat-error *ngFor="let error of errormessage.HSCmark_obtain">
+                  <ng-container *ngIf="HSCmark_obtain.hasError(error.type) && (HSCmark_obtain.dirty ||HSCmark_obtain.touched)">
+                    <small class="errormessage">{{error.message}}</small> 
+                  </ng-container>
+                </mat-error>
               </ion-col>
               <ion-col size=6>
                 <ion-item>
-                  <ion-label position="floating">Maximum marks</ion-label>
-                  <ion-input></ion-input>
+                  <ion-label position="floating">Total marks</ion-label>
+                  <ion-input formControlName="HSCmax_mark" inputmode="numeric"></ion-input>
                 </ion-item>
+                <mat-error *ngFor="let error of errormessage.HSCmax_mark">
+                  <ng-container *ngIf="HSCmax_mark.hasError(error.type) && (HSCmax_mark.dirty ||HSCmax_mark.touched)">
+                    <small class="errormessage">{{error.message}}</small> 
+                  </ng-container>
+                </mat-error>
               </ion-col>
 
             </ion-row>
             <ion-row>
-              <ion-col size=6>
+              <ion-col >
                 <ion-item>
                   <ion-label position="floating">Percentage</ion-label>
-                  <ion-input></ion-input>
+                  <ion-input formControlName="HSCpercent" inputmode="numeric"></ion-input>
                 </ion-item>
+                <mat-error *ngFor="let error of errormessage.percent">
+                  <ng-container *ngIf="HSCpercent.hasError(error.type) && (HSCpercent.dirty ||HSCpercent.touched)">
+                    <small class="errormessage">{{error.message}}</small> 
+                  </ng-container>
+                </mat-error>
               </ion-col>
-              <ion-col size=6>
+            </ion-row>
+            <ion-row>
+              <ion-col >
                 <ion-item>
-                  <ion-label position="floating">Medium</ion-label>
-                  <ion-input></ion-input>
+                  <ion-label>Medium</ion-label>
+                  <ion-select formControlName="medium"  placeholder="select Medium" >
+                    <ion-select-option value="Hindi">Hindi</ion-select-option>
+                    <ion-select-option value="Marathi">Marathi</ion-select-option>
+                    <ion-select-option value="English">English</ion-select-option>
+                  </ion-select>
                 </ion-item>
               </ion-col>
             </ion-row>
             <ion-row>
-              <ion-col size=3>
-
-              </ion-col>
-              <ion-col size=6>
+              <ion-col >
                 <ion-item>
-                  <ion-label position="floating">Year of Passing</ion-label>
-                  <ion-input></ion-input>
+                  <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
+                  <ion-label>Year of Passing</ion-label>
+                  <ion-datetime formControlName="yr_passing"  [min]="minDate" placeholder="select Date" [max]="maxDate" displayFormat="YYYY" pickerFormat="YYYY"></ion-datetime>
                 </ion-item>
               </ion-col>
             </ion-row>
           </ion-grid>
         </ion-card>
       </ion-slide>
+
       <ion-slide>
         <ion-card>
           <ion-label position="floating">Degree/Diploma/Current Course Details</ion-label>
           <ion-grid>
             <ion-row>
-              <ion-col size=6>
+              <ion-col >
                 <ion-item>
                   <ion-label position="floating">College Name</ion-label>
-                  <ion-input></ion-input>
+                  <ion-input formControlName="DegreeCollege_Name" ></ion-input>
                 </ion-item>
+                <mat-error *ngFor="let error of errormessage.DegreeCollege_Name">
+                  <ng-container *ngIf="DegreeCollege_Name.hasError(error.type) && (DegreeCollege_Name.dirty ||DegreeCollege_Name.touched)">
+                    <small class="errormessage">{{error.message}}</small> 
+                  </ng-container>
+                </mat-error>
               </ion-col>
-              <ion-col size=6>
+            </ion-row>
+            <ion-row>
+              <ion-col>
                 <ion-item>
                   <ion-label position="floating">University Name</ion-label>
-                  <ion-input></ion-input>
+                  <ion-input formControlName="university_name" ></ion-input>
                 </ion-item>
+                <mat-error *ngFor="let error of errormessage.university_name">
+                  <ng-container *ngIf="university_name.hasError(error.type) && (university_name.dirty ||university_name.touched)">
+                    <small class="errormessage">{{error.message}}</small> 
+                  </ng-container>
+                </mat-error>
               </ion-col>
             </ion-row>
             <ion-row>
               <ion-col>
                 <ion-item>
                   <ion-label position="floating">College Address</ion-label>
-                  <ion-textarea></ion-textarea>
+                  <ion-textarea formControlName="DegreeCollege_add"></ion-textarea>
                 </ion-item>
+                <mat-error *ngFor="let error of errormessage.DegreeCollege_add">
+                  <ng-container *ngIf="DegreeCollege_add.hasError(error.type) && (DegreeCollege_add.dirty ||DegreeCollege_add.touched)">
+                    <small class="errormessage">{{error.message}}</small> 
+                  </ng-container>
+                </mat-error>
               </ion-col>
             </ion-row>
             <ion-row>
               <ion-col size=6>
                 <ion-item>
                   <ion-label position="floating">Marks Obtained</ion-label>
-                  <ion-input></ion-input>
+                  <ion-input formControlName="Degreecollegemark_obtain" inputmode="numeric"></ion-input>
                 </ion-item>
+                <mat-error *ngFor="let error of errormessage.Degreecollegemark_obtain">
+                  <ng-container *ngIf="Degreecollegemark_obtain.hasError(error.type) && (Degreecollegemark_obtain.dirty ||Degreecollegemark_obtain.touched)">
+                    <small class="errormessage">{{error.message}}</small> 
+                  </ng-container>
+                </mat-error>
               </ion-col>
               <ion-col size=6>
                 <ion-item>
-                  <ion-label position="floating">Maximum marks</ion-label>
-                  <ion-input></ion-input>
+                  <ion-label position="floating">Total marks</ion-label>
+                  <ion-input formControlName="DegreeCollegemax_mark" inputmode="numeric"></ion-input>
                 </ion-item>
+                <mat-error *ngFor="let error of errormessage.DegreeCollegemax_mark">
+                  <ng-container *ngIf="DegreeCollegemax_mark.hasError(error.type) && (DegreeCollegemax_mark.dirty ||DegreeCollegemax_mark.touched)">
+                    <small class="errormessage">{{error.message}}</small> 
+                  </ng-container>
+                </mat-error>
               </ion-col>
 
             </ion-row>
@@ -189,31 +290,38 @@
               <ion-col size=6>
                 <ion-item>
                   <ion-label position="floating">Percentage</ion-label>
-                  <ion-input></ion-input>
+                  <ion-input formControlName="DegreeCollegepercent" inputmode="numeric"></ion-input>
                 </ion-item>
+                <mat-error *ngFor="let error of errormessage.DegreeCollegepercent">
+                  <ng-container *ngIf="DegreeCollegepercent.hasError(error.type) && (DegreeCollegepercent.dirty ||DegreeCollegepercent.touched)">
+                    <small class="errormessage">{{error.message}}</small> 
+                  </ng-container>
+                </mat-error>
               </ion-col>
               <ion-col size=6>
-                <ion-item>
-                  <ion-label position="floating">Course Name</ion-label>
-                  <ion-input></ion-input>
-                </ion-item>
+                <ion-label position="floating">Course Name</ion-label>
+                <ion-select>
+                <ion-select-option *ngFor="let x of data.Course_Name" value={{data.Course_Name}}>{{x.course}}</ion-select-option>
+              </ion-select>
               </ion-col>
             </ion-row>
             <ion-row>
-              <ion-col size=3>
-
-              </ion-col>
-              <ion-col size=6>
+              <ion-col >
                 <ion-item>
-                  <ion-label position="floating">Year of Passing</ion-label>
-                  <ion-input></ion-input>
+                  <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
+                  <ion-label>Year of Passing</ion-label>
+                  <ion-datetime formControlName="yr_passing"  [min]="minDate" placeholder="select Date" [max]="maxDate" displayFormat="YYYY" pickerFormat="YYYY"></ion-datetime>
                 </ion-item>
               </ion-col>
             </ion-row>
           </ion-grid>
         </ion-card>
       </ion-slide>
+
+
     </ion-slides>
+
+
     <ion-grid>
       <ion-row>
         <ion-col size=5>

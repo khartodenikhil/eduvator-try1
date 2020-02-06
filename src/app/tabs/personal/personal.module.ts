@@ -16,7 +16,8 @@ import { MaterialModule } from '../../material.module';
     ReactiveFormsModule,
     IonicModule,
     PersonalPageRoutingModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
   ],
   declarations: [PersonalPage]
 })

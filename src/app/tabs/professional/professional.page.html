@@ -111,12 +111,9 @@
         <ion-col>
           <ion-item>
             <ion-label>Instrested Country</ion-label>
-            <ion-select placeholder="Country" item-right>
-              <ion-select-option value="country_1">GERMANY</ion-select-option>
-              <ion-select-option value="country_2">ARMENIA</ion-select-option>
-              <ion-select-option value="country_3">ITALY</ion-select-option>
-              <ion-select-option value="country_4">UK</ion-select-option>
-              <ion-select-option value="country_5">CANADA</ion-select-option>
+          <ion-select placeholder="Country" >
+                <ion-select-option *ngFor="let x of data.country" value={{data.country}}>
+                    {{x.cntry}}</ion-select-option>
             </ion-select>
           </ion-item>
         </ion-col>
@@ -126,12 +123,10 @@
         <ion-col>
           <ion-item>
             <ion-label>Internship Department</ion-label>
-            <ion-select placeholder="Department" item-right>
-              <ion-select-option value="country_1">Cook</ion-select-option>
-              <ion-select-option value="country_2">Waiter</ion-select-option>
-              <ion-select-option value="country_3">Guide</ion-select-option>
-              <ion-select-option value="country_4">Cook</ion-select-option>
-            </ion-select>
+            <ion-select placeholder="Department" >
+              <ion-select-option *ngFor="let x of data.department" value={{data}}>
+                  {{x.dept}}</ion-select-option>
+          </ion-select>
           </ion-item>
         </ion-col>
       </ion-row>

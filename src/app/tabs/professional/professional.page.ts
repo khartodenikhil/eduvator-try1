@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Validators, FormBuilder , FormGroup, AbstractControl, ValidatorFn, FormControl} from '@angular/forms';
+import { Validators, FormBuilder, FormGroup, AbstractControl, ValidatorFn, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-professional',
@@ -24,20 +24,34 @@ export class ProfessionalPage implements OnInit {
   }
   public errormessage = {
     orgnizationEmail_id: [
-      {type : 'required' , message: 'Email Id is required'},
-      {type : 'invalid', message: 'Invalid Email Id'},
-      {type : 'pattern' , message: 'Email Id is not valid'},
+      { type: 'required', message: 'Email Id is required' },
+      { type: 'invalid', message: 'Invalid Email Id' },
+      { type: 'pattern', message: 'Email Id is not valid' },
     ],
     orgnizationPhoneNo: [
-      {type : 'required' , message: 'Contact Details Required'},
-      {type : 'invalid', message: 'Invalid Contact Number'},
-      {type : 'pattern' , message: 'Invalid Contact Number'},
+      { type: 'required', message: 'Contact Details Required' },
+      { type: 'invalid', message: 'Invalid Contact Number' },
+      { type: 'pattern', message: 'Invalid Contact Number' },
     ],
-    orgnizationName:[
-      {type : 'required' , message: 'orgnization Name Required'},
+    orgnizationName: [
+      { type: 'required', message: 'orgnization Name Required' },
     ]
   };
-
+  data = {
+    country: [
+      { cntry: 'CANADA' },
+      { cntry: 'UK' },
+      { cntry: 'ITALY' },
+      { cntry: 'ARMENIA' },
+      { cntry: 'GERMANY' }
+    ],
+    department:[
+      { dept: 'Cook' },
+      { dept: 'Waiter' },
+      { dept: 'Guide' },
+      { dept: 'Cook' },
+    ]
+  };
   professionalForm = this.formbuilder.group(
     {
       // tslint:disable-next-line: max-line-length

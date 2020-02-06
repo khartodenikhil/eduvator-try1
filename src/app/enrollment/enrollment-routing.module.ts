@@ -9,6 +9,15 @@ const routes: Routes = [
     component: EnrollmentPage,
     children: [
       {
+        path: '',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../tabs/personal/personal.module').then(m => m.PersonalPageModule)
+          }
+        ]
+      },
+      {
         path: 'personal',
         children: [
           {

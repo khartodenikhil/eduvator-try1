@@ -2,14 +2,21 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  
   {
-    path: 'forgot-password',
+    path: 'forget-password',
     loadChildren: () => import('./forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
   },
   {
     path: 'register',
     loadChildren: () => import('./register/register.module').then(m => m.RegisterPageModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then(m => m.RegisterPageModule)
+  },
+  {
+    path: 'edit-profile',
+    loadChildren: () => import('./edit-profile/edit-profile.module').then(m => m.EditProfilePageModule)
   },
   {
     path: 'book-slot',
@@ -29,10 +36,6 @@ const routes: Routes = [
     loadChildren: () => import('./enrollment/enrollment.module').then( m => m.EnrollmentPageModule)
   },
   {
-    path: 'resume',
-    loadChildren: () => import('./resume/resume.module').then( m => m.ResumePageModule)
-  },
-  {
     path: 'personal',
     loadChildren: () => import('./tabs/personal/personal.module').then( m => m.PersonalPageModule)
   },
@@ -45,6 +48,10 @@ const routes: Routes = [
     loadChildren: () => import('./tabs/professional/professional.module').then( m => m.ProfessionalPageModule)
   },
   {
+    path: 'profile-details',
+    loadChildren: () => import('./profile-details/profile-details.module').then( m => m.ProfileDetailsPageModule)
+  },
+  {
     path: 'connections',
     loadChildren: () => import('./tabs/connections/connections.module').then( m => m.ConnectionsPageModule)
   },
@@ -53,20 +60,18 @@ const routes: Routes = [
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'notifications',
-    loadChildren: () => import('./notifications/notifications.module').then( m => m.NotificationsPageModule)
+    path: 'profile-details',
+    loadChildren: () => import('./profile-details/profile-details.module').then( m => m.ProfileDetailsPageModule)
   },
   {
-    path: 'enrollment-list',
-    loadChildren: () => import('./enrollment-list/enrollment-list.module').then( m => m.EnrollmentListPageModule)
-  },  {
-    path: 'enrollment-details',
-    loadChildren: () => import('./enrollment-details/enrollment-details.module').then( m => m.EnrollmentDetailsPageModule)
+    path: 'edit-profile',
+    loadChildren: () => import('./edit-profile/edit-profile.module').then( m => m.EditProfilePageModule)
   },
-
-
-
-
+  {
+    path: 'resume',
+    loadChildren: () => import('./resume/resume.module').then( m => m.ResumePageModule)
+  },
+  
 ];
 
 @NgModule({

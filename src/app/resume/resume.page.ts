@@ -8,19 +8,21 @@ import { Base64 } from '@ionic-native/base64/ngx';
   templateUrl: './resume.page.html',
   styleUrls: ['./resume.page.scss'],
 })
-export class ResumePage {
+export class ResumePage implements OnInit {
   returnpath = '';
-  constructor( public filePath: FilePath, public fileChooser: FileChooser, private base64: Base64) {}
+  constructor( public filePath: FilePath, public fileChooser: FileChooser, private base64: Base64)
+  {  }
+  ngOnInit() {
+  }
   Pickfile() {
     this.fileChooser.open().then((fileuri) => {
       this.filePath.resolveNativePath(fileuri).then((nativepath) => {
       this.base64.encodeFile(nativepath).then((base64string) => {
         alert(base64string);
-    })
-  })
-  })
-
-
-}
+    });
+  });
+  });
+ }
+ 
 }
 

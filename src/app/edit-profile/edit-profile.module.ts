@@ -5,20 +5,21 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AcademicPageRoutingModule } from './academic-routing.module';
+import { EditProfilePageRoutingModule } from './edit-profile-routing.module';
 
-import { AcademicPage } from './academic.page';
-import { MaterialModule } from '../../material.module';
+import { EditProfilePage } from './edit-profile.page';
+
+import { MaterialModule } from '../material.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AcademicPageRoutingModule,
+    EditProfilePageRoutingModule,
     ReactiveFormsModule,
     MaterialModule
   ],
-  declarations: [AcademicPage]
+  declarations: [EditProfilePage]
 })
-export class AcademicPageModule {}
+export class EditProfilePageModule {}

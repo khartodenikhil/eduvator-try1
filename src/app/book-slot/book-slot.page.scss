@@ -6,12 +6,22 @@
 }
 .main-card{
     position: fixed;
-
-    top:15%;
+    align-content: center;
 }
 .btn-bottom {
     position: fixed;
-    left: 30%;
+    left: 0px;
     bottom: 0px;
-    right: 30%;
+    right: 0px;
 }
+ion-card{
+    padding-top: 15%;
+}
+.welcome-card img {
+    max-height: 35vh;
+    overflow: hidden;
+  }
+  .padded{
+    width: 75%;
+    padding-left: 15px;
+  }
